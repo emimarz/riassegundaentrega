@@ -26,6 +26,19 @@ $app->get('/contacto', function () use ($app) {
 ->bind('contactpage')
 ;
 
+$app->get('/tarea', function (Request $request) use ($app) {
+    return $app['twig']->render('login.html.twig', array(
+        'login_paths' => $app['oauth.login_paths'],
+        'logout_path' => $app['url_generator']->generate('logout', array(
+            '_csrf_token' => $app['oauth.csrf_token']('logout')
+        )),
+        'error' => $app['security.last_error']($request)
+    	));
+})
+->bind('loguadopage')
+;
+
+
 $app->post('/contacto', function (Request $request) use ($app) {
 	$email = $request->get("email");
 	$name = $request->get("name");
@@ -53,6 +66,7 @@ $app->post('/contacto', function (Request $request) use ($app) {
 })
 ->bind('contactpagepost')
 ;
+
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {

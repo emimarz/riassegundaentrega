@@ -14,7 +14,11 @@
               <a href="{{ path('homepage') }}">Inicio</a>
             </li>
             <li>
-              <a data-fancybox data-src="#no-login" href="javascript::void()" id="tarea"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i>&nbsp;Tarea</a>
+            {% if app.user %}
+              <a href="{{ path('loguadopage') }}" id="tarea"><i class="fa fa-google fa-lg" aria-hidden="true"></i>&nbsp;Tarea</a>
+            {% else %}            
+              <a data-fancybox data-src="#no-login" href="javascript::void()" id="tarea"><i class="fa fa-google fa-lg" aria-hidden="true"></i>&nbsp;Tarea</a>
+            {% endif %}
             </li>
             <li>
               <a href="https://github.com/emimarz/riassegundaentrega" target="_blank"><i class="fa fa-github fa-lg" aria-hidden="true"></i>&nbsp;Github</a>
