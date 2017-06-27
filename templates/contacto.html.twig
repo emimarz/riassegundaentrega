@@ -1,0 +1,81 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+      {% if emailsuccess is defined %}
+      <div id="successmessage" class="alert alert-dismissible alert-success" style="margin-top: 100px;">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Muchas Gracias!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+      </div>
+      <script type="text/javascript">
+        setTimeout(function(){ $('#successmessage').fadeOut( "slow", function() {
+        }); }, 3000);
+      </script>
+      {% endif %}
+
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <h1>Contactenos</h1>
+            <p class="lead">Por cualquier duda o sugerencia no dude en escribirnos</p>
+          </div>
+        </div>
+      </div>
+        <!-- Blockquotes -->
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="bs-component">
+              <blockquote  class="blockquote-reverse">
+                <p>“La gran paradoja de la era de la información es que ha concedido nueva respetabilidad a la opinión desinformada”</p>
+                <small><cite title="Source Title">Michael Crichton</cite></small>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forms
+      ================================================== -->
+      <div class="bs-docs-section">
+        <div class="row">
+          <div class="col-lg-2 col-md-2"></div>        
+          <div class="col-lg-8 col-md-8">
+            <div class="well bs-component">
+              <form name="contactus" class="form-horizontal" method="POST" action="{{ path('contactpagepost') }}">
+                <fieldset>
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                    <div class="col-lg-10">
+                      <input type="Email" class="form-control" id="inputEmail" name="email" placeholder="Email" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName" class="col-lg-2 control-label">Nombre</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="inputName" name="name" placeholder="Nombre" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="textArea" class="col-lg-2 control-label">Texto</label>
+                    <div class="col-lg-10">
+                      <textarea class="form-control" rows="3" id="textArea" name="comment" required></textarea>
+                      <span class="help-block">Desahoguese cuanto guste.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                      <button type="reset" class="btn btn-default">Cancelar</button>
+                      <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2"></div>
+        </div>
+        <div class="row">
+          <br /><br /><br /><br />
+        </div>
+      </div>
+
+{% endblock %}
